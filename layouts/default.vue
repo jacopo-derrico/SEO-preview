@@ -1,9 +1,9 @@
 <template>
-    <div class="text-sky-400">
+    <header class="text-sky-400">
         hello
-    </div>
+    </header>
 
-    <div>
+    <body>
         <slot />
-    </div>
+    </body>
 </template>
