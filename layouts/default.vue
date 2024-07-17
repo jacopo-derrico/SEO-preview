@@ -1,6 +1,6 @@
 <template>
     <header class="text-sky-400">
-        hello
+        SEOpreview
     </header>
 
     <body>
