@@ -1,7 +1,5 @@
 <template>
-    <div>
-        formcard
-    </div>
+    
 </template>
 
 <script setup>

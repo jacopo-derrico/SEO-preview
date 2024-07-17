@@ -9,6 +9,11 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
+p {
+    font-size: 14px;
+    line-height: 25px;
+}
+
 @layer components {
     .btn {
         @apply bg-black;
