@@ -1,10 +1,24 @@
 <template>
-    <div class="mx-4 lg:w-9/12 lg:mx-auto">
-        <p class="text-center">
-            This tool lets you preview the SEO of your website. Simply fill out the form with the title and description of your web page to see how it will look in a browser. You will see colored bars to help you understand if the length is optimal. It is more a question of pixel length than the number of characters. For any in-depth documentation, please refer to Google’s website documentation. Google’s bots may arbitrarily change the title and description depending on the search query.
-            <br>
-            Please note that while this tool provides an estimated preview, we do not guarantee its accuracy. We are not responsible for any discrepancies or issues that may arise from using this tool.
-        </p>
+    <div class="mx-4 lg:w-9/12 lg:mx-auto max-w-[1260px]">
+        <div class="my-14">
+            <p class="text-center">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel vehicula sapien. Suspendisse ante dolor, imperdiet a odio mattis, faucibus venenatis nulla. Mauris porttitor massa sit amet nisi laoreet, et sollicitudin mi feugiat. Nunc a ante condimentum felis sagittis vulputate a fermentum lorem. Pellentesque mattis sem quisl.
+            </p>
+        </div>
+        <div class="glassmorph-card mx-auto xl:w-11/12 xl:flex">
+            <FormCard />
+            <PreviewCard />
+        </div>
     </div>
-    <FormCard />
 </template>
+
+<style scoped>
+    .glassmorph-card {
+        background: rgba(255, 255, 255, 0.24);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(8.9px);
+        -webkit-backdrop-filter: blur(8.9px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+</style>
