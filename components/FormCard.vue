@@ -11,7 +11,7 @@
             </div>
             <input ref="title" class="border-white text-sm leading-5 w-full py-2 px-3 border-2 text-white rounded-lg shadow-sm focus:outline-none focus:ring focus:border-white focus:ring-blue-500 bg-transparent placeholder:italic placeholder:text-slate-100" name="title" type="text" placeholder="titolo | sito" v-model="previewStore.titlePreview">
             <div class="h-[7px] bg-white/50 mt-3 rounded">
-                <div ref="title-val-bar" class="h-[7px] rounded" :class="titleBarColor" :style="{ width: previewStore.titlePreview.length > 0 && previewStore.titlePreview.length < 60 ? `calc(${(100 * previewStore.titlePreview.length) / 60}%)` : '100%' }"></div>
+                <div class="h-[7px] rounded" :class="titleBarColor" :style="{ width: previewStore.titlePreview.length > 0 && previewStore.titlePreview.length < 60 ? `calc(${(100 * previewStore.titlePreview.length) / 60}%)` : '100%' }"></div>
             </div>
         </div>
         <div class="flex-col mt-8">
@@ -24,6 +24,9 @@
                 </span>
             </div>
             <textarea class="border-white text-sm leading-5 w-full py-2 px-3 border-2 min-h-[10em] text-white rounded-lg shadow-sm focus:outline-none focus:ring focus:border-white focus:ring-blue-500 bg-transparent placeholder:italic placeholder:text-slate-100" name="description" type="text" placeholder="Duis do fugiat non ex. Ad ullamco cillum eu consequat voluptate fugiat labore incididunt dolore dolore in Lorem aliquip cupidatat." v-model="previewStore.descrPreview"></textarea>
+            <div class="h-[7px] bg-white/50 mt-3 rounded">
+                <div class="h-[7px] rounded" :class="descrBarColor" :style="{ width: previewStore.descrPreview.length > 0 && previewStore.descrPreview.length < 158 ? `calc(${(100 * previewStore.descrPreview.length) / 158}%)` : '100%' }"></div>
+            </div>
         </div>
     </div>
 </template>
@@ -33,6 +36,7 @@ import { usePreviewStore } from '~/store/preview';
 
 const previewStore = usePreviewStore();
 
+// visual feedback bar for title
 const titleBarColor = computed(() => {
     const classes = [];
     // console.log(previewStore.titlePreview.length)
@@ -45,6 +49,21 @@ const titleBarColor = computed(() => {
     }
 
     return classes;
+});
+
+// bar for description
+const descrBarColor = computed(() => {
+    const descrClasses = [];
+    console.log(previewStore.descrPreview.length)
+    if (previewStore.descrPreview.length > 0 && previewStore.descrPreview.length <= 120) {
+        descrClasses.push('bg-green-500');
+    } else if (previewStore.descrPreview.length > 120 && previewStore.descrPreview.length < 158){
+        descrClasses.push('bg-yellow-500');
+    } else if (previewStore.descrPreview.length >= 158){
+        descrClasses.push('bg-red-500');
+    }
+
+    return descrClasses;
 });
 
 </script>
