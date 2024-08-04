@@ -9,7 +9,10 @@
                     </div>
                 </span>
             </div>
-            <input class="border-white text-sm leading-5 w-full py-2 px-3 border-2 text-white rounded-lg shadow-sm focus:outline-none focus:ring focus:border-white focus:ring-blue-500 bg-transparent placeholder:italic placeholder:text-slate-100" name="title" type="text" placeholder="titolo | sito" v-model="previewStore.titlePreview">
+            <input ref="title" class="border-white text-sm leading-5 w-full py-2 px-3 border-2 text-white rounded-lg shadow-sm focus:outline-none focus:ring focus:border-white focus:ring-blue-500 bg-transparent placeholder:italic placeholder:text-slate-100" name="title" type="text" placeholder="titolo | sito" v-model="previewStore.titlePreview">
+            <div class="h-[7px] bg-white/50 mt-3 rounded">
+                <div ref="title-val-bar" class="h-[7px] rounded" :class="titleBarColor" :style="{ width: previewStore.titlePreview.length > 0 && previewStore.titlePreview.length < 60 ? `calc(${(100 * previewStore.titlePreview.length) / 60}%)` : '100%' }"></div>
+            </div>
         </div>
         <div class="flex-col mt-8">
             <div class="mb-2 relative">
@@ -26,9 +29,23 @@
 </template>
 
 <script setup>
-import { usePreviewStore } from '~/store/preview'
+import { usePreviewStore } from '~/store/preview';
 
-const previewStore = usePreviewStore()
+const previewStore = usePreviewStore();
+
+const titleBarColor = computed(() => {
+    const classes = [];
+    // console.log(previewStore.titlePreview.length)
+    if (previewStore.titlePreview.length > 0 && previewStore.titlePreview.length <= 55) {
+        classes.push('bg-green-500');
+    } else if (previewStore.titlePreview.length > 55 && previewStore.titlePreview.length < 60){
+        classes.push('bg-yellow-500');
+    } else if (previewStore.titlePreview.length >= 60){
+        classes.push('bg-red-500');
+    }
+
+    return classes;
+});
 
 </script>
 
