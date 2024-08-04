@@ -1,7 +1,7 @@
 <template>
     <div class="flex-col">
-        <div class="flex-col">
-            <div class="mb-2 relative">
+        <div class="flex-col relative">
+            <div class="mb-2">
                 <label for="title" class="text-white">Title</label>
                 <span id="title-tip" class="px-1 ms-2 bg-white/50 rounded-xl text-white text-xs">?
                     <div id="titleTooltip" class="tooltips text-black bg-white p-4 rounded-xl absolute bottom-7 left-10">
@@ -13,8 +13,13 @@
             <div class="h-[7px] bg-white/50 mt-3 rounded">
                 <div class="h-[7px] rounded" :class="titleBarColor" :style="{ width: previewStore.titlePreview.length > 0 && previewStore.titlePreview.length < 60 ? `calc(${(100 * previewStore.titlePreview.length) / 60}%)` : '100%' }"></div>
             </div>
+            <button class="bg-white/50 rounded p-1 absolute bottom-7 right-2">
+                <svg width="14" height="15" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 0.5H7.06439L9.5 2.78338V10.5H0.5V0.5ZM1.5 1.5V9.5H8.5V3.5H6.36667V1.5H1.5ZM7.36667 2.15412L7.73561 2.5H7.36667V2.15412Z" fill="#4692FE"/>
+                </svg>
+            </button>
         </div>
-        <div class="flex-col mt-8">
+        <div class="flex-col mt-8 relative">
             <div class="mb-2 relative">
                 <label for="description" class="text-white">Description</label>
                 <span id="descr-tip" class="px-1 ms-2 bg-white/50 rounded-xl text-white text-xs">?
@@ -27,6 +32,11 @@
             <div class="h-[7px] bg-white/50 mt-3 rounded">
                 <div class="h-[7px] rounded" :class="descrBarColor" :style="{ width: previewStore.descrPreview.length > 0 && previewStore.descrPreview.length < 158 ? `calc(${(100 * previewStore.descrPreview.length) / 158}%)` : '100%' }"></div>
             </div>
+            <button class="bg-white/50 rounded p-1 absolute bottom-7 right-2">
+                <svg width="14" height="15" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 0.5H7.06439L9.5 2.78338V10.5H0.5V0.5ZM1.5 1.5V9.5H8.5V3.5H6.36667V1.5H1.5ZM7.36667 2.15412L7.73561 2.5H7.36667V2.15412Z" fill="#4692FE"/>
+                </svg>
+            </button>
         </div>
     </div>
 </template>
