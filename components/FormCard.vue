@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-col">
+    <div class="flex-col xl:w-7/12 p-[40px]">
         <div class="flex-col relative">
             <div class="mb-2">
                 <label for="title" class="text-white">Title</label>
