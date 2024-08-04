@@ -5,9 +5,9 @@
             <br>
             Please note that while this tool provides an estimated preview, we do not guarantee its accuracy. We are not responsible for any discrepancies or issues that may arise from using this tool.
         </p>
-    </div>
-    <div class="mx-4 flex lg:w-8/12 lg:mx-auto bg-white/50 rounded-xl">
-        <FormCard class="p-10 lg:w-7/12"/>
-
+        <div class="mx-auto xl:w-11/12 xl:flex ">
+            <FormCard class="p-10 lg:w-7/12"/>
+    
+        </div>
     </div>
 </template>
