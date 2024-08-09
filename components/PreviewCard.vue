@@ -10,9 +10,9 @@
                     </svg>
                 </div>
                 <div class="overflow-scroll">
-                    <h3>This is the title of your website</h3>
+                    <h3>{{ previewStore.titlePreview || 'The title of your website'}}</h3>
                     <p>
-                        <span class="date">Jul 13, 2024 - </span>This dice roller is a string parser that returns an object containing the component parts of the dice roll. It supports the full Roll20 Dice Specification.
+                        <span class="date">Jul 13, 2024 - </span>{{ previewStore.descrPreview || 'Duis do fugiat non ex. Ad ullamco cillum eu consequat voluptate fugiat labore incididunt dolore dolore in Lorem aliquip cupidatat.'}}
                     </p>
                 </div>
             </div>
@@ -26,10 +26,10 @@
                             stroke="white" stroke-width="1.62963" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
-                <h3>This is the title of your website</h3>
+                <h3>{{ previewStore.titlePreview || 'The title of your website'}}</h3>
                 <div class="flex gap-4">
                     <p class="w-8/12">
-                        <span class="date">Jul 13, 2024 - </span>This dice roller is a string parser that returns an object containing the component parts of the dice roll. It supports the full Roll20 Dice Specification.
+                        <span class="date">Jul 13, 2024 - </span>{{ previewStore.descrPreview || 'Duis do fugiat non ex. Ad ullamco cillum eu consequat voluptate fugiat labore incididunt dolore dolore in Lorem aliquip cupidatat.'}}
                     </p>
                     <div class="bg-[#4692FE36] w-[80px] h-[80px] rounded">
     
@@ -40,7 +40,10 @@
     </div>
 </template>
 
-<script>
+<script setup>
+import { usePreviewStore } from '~/store/preview';
+
+const previewStore = usePreviewStore();
 
 </script>
 
