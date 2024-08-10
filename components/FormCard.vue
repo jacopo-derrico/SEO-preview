@@ -13,11 +13,13 @@
             <div class="h-[7px] bg-white/50 mt-3 rounded">
                 <div class="h-[7px] rounded" :class="titleBarColor" :style="{ width: previewStore.titlePreview.length > 0 && previewStore.titlePreview.length < 60 ? `calc(${(100 * previewStore.titlePreview.length) / 60}%)` : '100%' }"></div>
             </div>
-            <button class="bg-white/50 rounded p-1 absolute bottom-7 right-2">
-                <svg width="14" height="15" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button @click="copyTitle()" class="bg-white/50 rounded p-1 absolute bottom-7 right-2 w-[22px] h-[24px]">
+                <svg v-if="previewStore.isTitleCopied" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16" fill="#4692FE"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                <svg v-else width="14" height="15" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 0.5H7.06439L9.5 2.78338V10.5H0.5V0.5ZM1.5 1.5V9.5H8.5V3.5H6.36667V1.5H1.5ZM7.36667 2.15412L7.73561 2.5H7.36667V2.15412Z" fill="#4692FE"/>
                 </svg>
             </button>
+
         </div>
         <div class="flex-col mt-8 relative">
             <div class="mb-2 relative">
@@ -32,8 +34,9 @@
             <div class="h-[7px] bg-white/50 mt-3 rounded">
                 <div class="h-[7px] rounded" :class="descrBarColor" :style="{ width: previewStore.descrPreview.length > 0 && previewStore.descrPreview.length < 158 ? `calc(${(100 * previewStore.descrPreview.length) / 158}%)` : '100%' }"></div>
             </div>
-            <button class="bg-white/50 rounded p-1 absolute bottom-9 right-2">
-                <svg width="14" height="15" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button @click="copyDescription()" class="bg-white/50 rounded p-1 absolute bottom-9 right-2 w-[22px] h-[24px]">
+                <svg v-if="previewStore.isDescrCopied" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16" fill="#4692FE"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                <svg v-else width="14" height="15" viewBox="0 0 10 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 0.5H7.06439L9.5 2.78338V10.5H0.5V0.5ZM1.5 1.5V9.5H8.5V3.5H6.36667V1.5H1.5ZM7.36667 2.15412L7.73561 2.5H7.36667V2.15412Z" fill="#4692FE"/>
                 </svg>
             </button>
@@ -75,6 +78,34 @@ const descrBarColor = computed(() => {
 
     return descrClasses;
 });
+
+// copy title to clipboard
+async function copyTitle() {
+  try {
+    await navigator.clipboard.writeText(previewStore.titlePreview);
+    // alert('Copied to clipboard!');
+    previewStore.isTitleCopied = true;
+    setTimeout(() => {
+        previewStore.isTitleCopied = false;
+    }, 2000)
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+  }
+}
+
+// copy description to clipboard
+async function copyDescription() {
+  try {
+    await navigator.clipboard.writeText(previewStore.descrPreview);
+    // alert('Copied to clipboard!');
+    previewStore.isDescrCopied = true;
+    setTimeout(() => {
+        previewStore.isDescrCopied = false;
+    }, 2000)
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+  }
+}
 
 </script>
 
