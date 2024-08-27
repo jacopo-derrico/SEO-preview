@@ -41,6 +41,16 @@
                 </svg>
             </button>
         </div>
+        <button @click="copyEmbed()" class=" bg-[#4692FE] p-2 rounded-xl text-white font-medium mt-8">
+            <span v-if="previewStore.isEmbedCopied" class="flex gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                Copied!
+            </span>
+            <span v-else class="flex gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M320-240 80-480l240-240 57 57-184 184 183 183-56 56Zm320 0-57-57 184-184-183-183 56-56 240 240-240 240Z"/></svg>
+                Embed both
+            </span>
+        </button>
     </div>
 </template>
 
@@ -101,6 +111,21 @@ async function copyDescription() {
     previewStore.isDescrCopied = true;
     setTimeout(() => {
         previewStore.isDescrCopied = false;
+    }, 2000)
+  } catch (err) {
+    console.error('Failed to copy text: ', err);
+  }
+}
+
+// copy embed code to clipboard
+async function copyEmbed() {
+  try {
+    await navigator.clipboard.writeText(`<title>${previewStore.titlePreview}</title>
+    <meta name="description" content="${previewStore.descrPreview}">`);
+    // alert('Copied to clipboard!');
+    previewStore.isEmbedCopied = true;
+    setTimeout(() => {
+        previewStore.isEmbedCopied = false;
     }, 2000)
   } catch (err) {
     console.error('Failed to copy text: ', err);
