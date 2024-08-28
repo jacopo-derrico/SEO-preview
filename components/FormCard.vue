@@ -3,9 +3,9 @@
         <div class="flex-col relative">
             <div class="mb-2">
                 <label for="title" class="text-white">Title</label>
-                <span id="title-tip" class="px-1 ms-2 bg-white/50 rounded-xl text-white text-xs">?
+                <span id="title-tip" class="px-1 ms-2 bg-white/50 rounded-xl text-white text-xs cursor-help">?
                     <div id="titleTooltip" class="tooltips text-black bg-white p-4 rounded-xl absolute bottom-24 left-10">
-                        <p>Amet ullamco irure labore dolore elit ex consequat pariatur nostrud pariatur. Ex cupidatat cupidatat magna est tempor ut eu. Proident tempor laboris labore ipsum ipsum et.</p>
+                        <p>There is <b>no minimum length</b> for the title, but there is a max. The bar underneath help you understand if you are making the title too long, this is by <b>number of characters</b>, but Google bots may decide to truncate it based on actual px length or based on content.</p>
                     </div>
                 </span>
             </div>
@@ -24,9 +24,9 @@
         <div class="flex-col mt-8 relative">
             <div class="mb-2 relative">
                 <label for="description" class="text-white">Description</label>
-                <span id="descr-tip" class="px-1 ms-2 bg-white/50 rounded-xl text-white text-xs">?
+                <span id="descr-tip" class="px-1 ms-2 bg-white/50 rounded-xl text-white text-xs cursor-help">?
                     <div id="descrTooltip" class="tooltips text-black bg-white p-4 rounded-xl absolute bottom-7 left-24">
-                        <p>Amet ullamco irure labore dolore elit ex consequat pariatur nostrud pariatur. Ex cupidatat cupidatat magna est tempor ut eu. Proident tempor laboris labore ipsum ipsum et.</p>
+                        <p>There is <b>no minimum length</b> for the description as well, but there is a max. The bar underneath help you understand if you are making the description too long, this is calculated by <b>number of characters</b>, but Google bots may decide to truncate it based on actual px length or based on content. Remember to <b>be brief and coherent</b> with the content of your website. Generally, on desktop it will fill 2 lines and in mobile 3, 1 line more if it shows a picture.</p>
                     </div>
                 </span>
             </div>
