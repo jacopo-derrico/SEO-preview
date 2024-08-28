@@ -3,9 +3,9 @@
         <h1 class="font-extrabold text-6xl">SEOpreview</h1>
     </header>
 
-    <body>
+    <main>
         <slot />
-    </body>
+    </main>
 
     <footer class="flex justify-center items-center my-3">
         <svg class="bg-white/50 p-[4px] rounded" width="28" height="28" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,4 +33,12 @@
 
 <style lang="css">
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    
+    body{
+        background-image: url('/assets/img/bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        object-fit: contain;
+    }
 </style>
