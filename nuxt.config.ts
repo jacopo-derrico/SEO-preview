@@ -5,6 +5,9 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
+    ['@nuxtjs/google-adsense', {
+      id: 'ca-pub-9793954299605461'
+    }]
   ],
   app: {
     head: {
