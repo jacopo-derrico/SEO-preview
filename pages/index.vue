@@ -1,7 +1,7 @@
 <template>
     <div class="mx-4 lg:w-9/12 lg:mx-auto max-w-[1260px]">
         <div class="my-14">
-            <p class="text-center">
+            <p class="text-center text-white font-semibold">
                 This tool lets you have a preview of the SEO of your website. Simply fill the form with the title and description of your website page to see what it will look like on browser
                 You will see coloured bars to help you understand if the length is good or bad. It is more a question of pixel length than number of characters, for any in-depth documentation please check Google’s website documentation.
                 Google’s bots may change the title and description arbitrary depending on the search that has been made.
