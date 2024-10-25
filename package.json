@@ -12,11 +12,13 @@
   "dependencies": {
     "@nuxtjs/google-adsense": "^3.0.0",
     "@pinia/nuxt": "^0.5.1",
+    "gsap": "^3.12.5",
     "nuxt": "^3.12.3",
     "pinia": "^2.1.7",
     "vue": "latest"
   },
   "devDependencies": {
+    "@hypernym/nuxt-gsap": "^2.4.3",
     "@nuxtjs/tailwindcss": "^6.12.1"
   }
 }

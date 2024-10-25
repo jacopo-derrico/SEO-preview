@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     ['@nuxtjs/google-adsense', {
       id: 'ca-pub-9793954299605461'
-    }]
+    }],
+    '@hypernym/nuxt-gsap'
   ],
   app: {
     head: {
