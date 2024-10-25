@@ -47,88 +47,40 @@
         </footer>
 
         <!-- BG animation -->
-        <ul id="bg-animation-box" ref="bubbleBox">
-            <li v-for="bubble in allBubbles" :style="bubble.style"></li>
+        <ul id="bg-animation-box" class="-z-[1] relative">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
         </ul>
     </div>
 </template>
 
 <script setup>
-    import { ref, onMounted, onUnmounted } from 'vue';
-
-    const bubbleBox = ref(null);
-    const allBubbles = ref([]);
-    let isGeneratingBubble = false;
-    const threshold = 20
-
-    function removeOffScreenBubbles() {
-        
-        setInterval(() => {
-            bubbleBox.value.shift();
-        }, 55000)
-
-    }
-
-    function generateBubble() {
-        if (!bubbleBox.value || isGeneratingBubble) return
-
-        const size = Math.floor(Math.random() * (document.documentElement.clientWidth / 10)) + document.documentElement.clientWidth / 10;
-        const delay = Math.random() * 10000;
-        const gradientColor = getRandomGradient();
-        const leftPosition = Math.random() * 100;
-
-        const bubble = {
-            style: {
-                width: `${size}px`,
-                height: `${size}px`,
-                background: `linear-gradient(${getRandomAngle()}deg, ${gradientColor[0]}, ${gradientColor[1]})`,
-                animationDelay: `${delay}s`,
-                left: `${leftPosition}%`,
-                animation: 'bg-animate-01 50s linear infinite',
-                bottom: '-200px'
-            }
-        };
-
-        // const bubbleElement = document.createElement('li');
-        // Object.entries(bubble.style).forEach(([key, value]) => {
-        //     bubbleElement.style[key] = value;
-        // });
-
-        // bubbleBox.value.appendChild(bubbleElement);
-
-        allBubbles.value.push(bubble);
-
-        // removeOffScreenBubbles();
-
-        isGeneratingBubble = true;
-        requestAnimationFrame(() => {
-            isGeneratingBubble = false;
-            setTimeout(generateBubble, 10000);
-        });
-    };
-
-    function getRandomGradient() {
-        const colors = ['#0DE1FD', '#8DCFFF', '#4692FE', '#b1c2d6', '#00AEFF', '#0073FF']
-        return [colors[Math.floor(Math.random() * colors.length)], colors[Math.floor(Math.random() * colors.length)]]
-    }
-
-    function getRandomAngle() {
-        return Math.random() * 360
-    }
-
-    function createBubblesEveryFiveSeconds() {
-        setInterval(() => {
-            generateBubble();
-        }, 5000);
-    }
+    const { $gsap } = useNuxtApp();
 
     onMounted(() => {
-        generateBubble();
-        removeOffScreenBubbles();
-    })
+        document.addEventListener("mousemove", mouseMoveBubble);
+        let bubbles = $gsap.utils.toArray(".bubble");
+        function mouseMoveBubble(e) {
+            
+            bubbles.forEach((bubble, index) => {
+                const depth = 10;
+                const moveX = (e.pageX - window.innerWidth / 2) / depth;
+                const moveY = (e.pageY - window.innerHeight / 2) / depth;
+                index++
+                
+                $gsap.to(bubble, {
+                    x: moveX * index,
+                    y: moveY * index,
+                });
+            });
+        };
 
-    onUnmounted(() => {
-        clearInterval(createBubblesEveryFiveSeconds());
+        requestAnimationFrame(mouseMoveBubble);
     });
 
 </script>
@@ -139,6 +91,69 @@
     body {
         background: linear-gradient(60deg, #7e2585, #4692FE);
         height: 100vh;
+    }
+
+    .bubble {
+        border-radius: 50%;
+        position: absolute;
+
+        background: radial-gradient(circle at 75% 30%,
+                rgba(255, 255, 255, 0.498) 5px,
+                rgba(0, 255, 255, 0.364) 8%,
+                rgba(0, 0, 139, 0.552) 60%,
+                rgba(0, 255, 255, 0.366) 100%);
+        box-shadow: inset 0 0 10px #ffffffc4, inset 10px 0 46px #eaf5fc9d,
+            inset 88px 0px 60px #c2d8fe2e, inset -20px -60px 100px #fde9ea52,
+            inset 0 50px 140px #fde9ea2c;
+    }
+
+    #bg-animation-box .bubble:nth-child(1) {
+        top: 10%;
+        left: 15%;
+        height: 20vw;
+        width: 20vw;
+    }
+
+    #bg-animation-box .bubble:nth-child(2) {
+        top: 20%;
+        left: 75%;
+        height: 30vw;
+        width: 30vw;
+    }
+
+    #bg-animation-box .bubble:nth-child(3) {
+        top: 5%;
+        left: 55%;
+        height: 20vw;
+        width: 20vw;
+    }
+
+    #bg-animation-box .bubble:nth-child(4) {
+        top: 40%;
+        left: 5%;
+        height: 20vw;
+        width: 20vw;
+    }
+
+    #bg-animation-box .bubble:nth-child(5) {
+        top: 60%;
+        left: 30%;
+        height: 30vw;
+        width: 30vw;
+    }
+
+    #bg-animation-box .bubble:nth-child(6) {
+        top: 60%;
+        left: 75%;
+        height: 10vw;
+        width: 10vw;
+    }
+
+    #bg-animation-box .bubble:nth-child(7) {
+        top: 40%;
+        left: 45%;
+        height: 15vw;
+        width: 15vw;
     }
 
     /* BG animation */
@@ -156,106 +171,8 @@
         position: fixed;
         display: block;
         list-style: none;
-        /* animation: bg-animate-01 50s linear infinite; */
-        /* bottom: -150px; */
         border-radius: 50%;
     }
-
-    /* .bg-animation-box li:nth-child(1) {
-        left: 4%;
-        width: 180px;
-        height: 180px;
-        animation-delay: 0s;
-        background: linear-gradient(60deg, #0DE1FD, #8DCFFF);
-    }
-
-    .bg-animation-box li:nth-child(2) {
-        left: 25%;
-        width: 250px;
-        height: 250px;
-        animation-delay: 8s;
-        background: linear-gradient(120deg, #4692FE, #b1c2d6);
-    }
-
-    .bg-animation-box li:nth-child(3) {
-        left: 18%;
-        width: 100px;
-        height: 100px;
-        animation-delay: 12s;
-        background: linear-gradient(40deg, #00AEFF, #0073FF);
-    }
-
-    .bg-animation-box li:nth-child(4) {
-        left: 35%;
-        width: 150px;
-        height: 150px;
-        animation-delay: 25s;
-        background: linear-gradient(60deg, #0DE1FD, #8DCFFF);
-    }
-
-    .bg-animation-box li:nth-child(5) {
-        left: 43%;
-        width: 60px;
-        height: 60px;
-        animation-delay: 14s;
-        background: linear-gradient(60deg, #4692FE, #b1c2d6);
-    }
-
-    .bg-animation-box li:nth-child(6) {
-        left: 60%;
-        width: 110px;
-        height: 110px;
-        animation-delay: 19s;
-        background: linear-gradient(40deg, #00AEFF, #0073FF);
-    }
-
-    .bg-animation-box li:nth-child(7) {
-        left: 70%;
-        width: 200px;
-        height: 200px;
-        animation-delay: 27s;
-        background: linear-gradient(60deg, #4692FE, #b1c2d6);
-    }
-
-    .bg-animation-box li:nth-child(8) {
-        left: 95%;
-        width: 160px;
-        height: 160px;
-        animation-delay: 13s;
-        background: linear-gradient(60deg, #4692FE, #b1c2d6);
-    }
-
-    .bg-animation-box li:nth-child(9) {
-        left: 64%;
-        width: 60px;
-        height: 60px;
-        animation-delay: 14s;
-        background: linear-gradient(60deg, #4692FE, #b1c2d6);
-    }
-
-    .bg-animation-box li:nth-child(10) {
-        left: 52%;
-        width: 110px;
-        height: 110px;
-        animation-delay: 19s;
-        background: linear-gradient(40deg, #00AEFF, #0073FF);
-    }
-
-    .bg-animation-box li:nth-child(11) {
-        left: 77%;
-        width: 200px;
-        height: 200px;
-        animation-delay: 27s;
-        background: linear-gradient(60deg, #4692FE, #b1c2d6);
-    }
-
-    .bg-animation-box li:nth-child(12) {
-        left: 90%;
-        width: 160px;
-        height: 160px;
-        animation-delay: 13s;
-        background: linear-gradient(60deg, #4692FE, #b1c2d6);
-    } */
 
     @keyframes bg-animate-01 {
         0% {
