@@ -15,7 +15,10 @@ export default defineNuxtConfig({
       title: 'SEO Preview',
       meta: [
         { name: 'description', content: 'Test the SEO for your website, see how it will show on browser and easily copy-paste it, or embed the code for free!'}
-      ]
+      ],
+      htmlAttrs: {
+        lang: 'en',
+      },
     }
   }
 })

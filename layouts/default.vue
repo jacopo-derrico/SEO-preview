@@ -18,7 +18,7 @@
             <p class="mx-4">
                 Buy us a cup of tea
             </p>
-            <a href="https://www.paypal.com/donate/?hosted_button_id=F4ZM9R2WJCYW2" class="bg-white rounded px-2">
+            <a href="https://www.paypal.com/donate/?hosted_button_id=F4ZM9R2WJCYW2" class="bg-white rounded px-2  hover:bg-blue-200">
                 <svg class="w-[80px]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     version="1.1" id="Layer_1" x="0px" y="0px" width="124px" height="33px" viewBox="0 0 124 33"
                     enable-background="new 0 0 124 33" xml:space="preserve">
@@ -47,7 +47,7 @@
         </footer>
 
         <!-- BG animation -->
-        <ul id="bg-animation-box" class="-z-[1] relative">
+        <div id="bg-animation-box" class="-z-[1] relative">
             <div class="bubble"></div>
             <div class="bubble"></div>
             <div class="bubble"></div>
@@ -55,7 +55,7 @@
             <div class="bubble"></div>
             <div class="bubble"></div>
             <div class="bubble"></div>
-        </ul>
+        </div>
     </div>
 </template>
 

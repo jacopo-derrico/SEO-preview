@@ -10,7 +10,7 @@
                     </svg>
                 </div>
                 <div class="overflow-scroll">
-                    <h3>{{ previewStore.titlePreview || 'The title of your website'}}</h3>
+                    <h2>{{ previewStore.titlePreview || 'The title of your website'}}</h2>
                     <p>
                         <span class="date">Jul 13, 2024 - </span>{{ previewStore.descrPreview || 'Duis do fugiat non ex. Ad ullamco cillum eu consequat voluptate fugiat labore incididunt dolore dolore in Lorem aliquip cupidatat.'}}
                     </p>
@@ -26,7 +26,7 @@
                             stroke="white" stroke-width="1.62963" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
-                <h3>{{ previewStore.titlePreview || 'The title of your website'}}</h3>
+                <h2>{{ previewStore.titlePreview || 'The title of your website'}}</h2>
                 <div class="flex gap-4">
                     <p class="w-8/12">
                         <span class="date">Jul 13, 2024 - </span>{{ previewStore.descrPreview || 'Duis do fugiat non ex. Ad ullamco cillum eu consequat voluptate fugiat labore incididunt dolore dolore in Lorem aliquip cupidatat.'}}
@@ -62,7 +62,7 @@ const previewStore = usePreviewStore();
     border-radius: 30px;
 }
 
-h3 {
+h2 {
     font-size: 15px;
     color: #1A0CAB;
     margin-bottom: 10px;
