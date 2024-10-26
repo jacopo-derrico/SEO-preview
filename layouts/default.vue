@@ -4,11 +4,13 @@
             <h1 class="font-extrabold text-6xl text-white">SEOpreview</h1>
         </header>
 
+
+
         <main>
             <slot />
         </main>
 
-        <footer class="flex justify-center items-center mt-10 mb-3 text-white font-semibold">
+        <footer class="flex justify-center items-center mt-10 text-white font-semibold mb-[100px] lg:mb-0">
             <svg class="bg-white/50 p-[4px] rounded" width="28" height="28" viewBox="0 0 11 11" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -18,7 +20,8 @@
             <p class="mx-4">
                 Buy us a cup of tea
             </p>
-            <a target="_blank" href="https://www.paypal.com/donate/?hosted_button_id=F4ZM9R2WJCYW2" class="bg-white rounded px-2  hover:bg-blue-200">
+            <a target="_blank" href="https://www.paypal.com/donate/?hosted_button_id=F4ZM9R2WJCYW2"
+                class="bg-white rounded px-2  hover:bg-blue-200">
                 <svg class="w-[80px]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     version="1.1" id="Layer_1" x="0px" y="0px" width="124px" height="33px" viewBox="0 0 124 33"
                     enable-background="new 0 0 124 33" xml:space="preserve">
@@ -46,6 +49,31 @@
             </a>
         </footer>
 
+        <!-- Google Ads -->
+            <!-- skyscrapers large from 1280px -->
+            <div class="w-[160px] h-[600px] absolute left-0 top-[20vh] hidden xl:block">
+                <Adsbygoogle ad-slot="pub-9793954299605461" ad-format="vertical" :include-query="true"/>
+            </div>
+            <div class="w-[160px] h-[600px] absolute right-0 top-[20vh] hidden xl:block">
+                <Adsbygoogle ad-slot="pub-9793954299605461" ad-format="vertical" :include-query="true"/>
+            </div>
+            <!-- leaderboard from 1024px -->
+            <div class="w-[728px] h-[90px] absolute right-[50%] bottom-0 translate-x-[50%] hidden md:block">
+                <Adsbygoogle ad-slot="pub-9793954299605461" ad-format="horizontal" :include-query="true"/>
+            </div>
+            <!-- skyscraper between 1024px to 1280 -->
+            <div class="w-[120px] h-[600px] absolute left-0 top-[20vh] hidden lg:block xl:hidden">
+                <Adsbygoogle ad-slot="pub-9793954299605461" ad-format="vertical" :include-query="true"/>
+            </div>
+            <div class="w-[120px] h-[600px] absolute right-0 top-[20vh] hidden lg:block xl:hidden">
+                <Adsbygoogle ad-slot="pub-9793954299605461" ad-format="vertical" :include-query="true"/>
+            </div>
+            <!-- banner mobile up to 640px -->
+            <div class="w-[300px] h-[50px] absolute bottom-0 right-[50%] translate-x-[50%] md:hidden">
+                <Adsbygoogle ad-slot="pub-9793954299605461" ad-format="horizontal" :include-query="true"/>
+            </div>
+        <!-- Google Ads END -->
+
         <!-- BG animation -->
         <div id="bg-animation-box" class="-z-[1] relative">
             <div class="bubble"></div>
@@ -66,13 +94,13 @@
         document.addEventListener("mousemove", mouseMoveBubble);
         let bubbles = $gsap.utils.toArray(".bubble");
         function mouseMoveBubble(e) {
-            
+
             bubbles.forEach((bubble, index) => {
                 const depth = 10;
                 const moveX = (e.pageX - window.innerWidth / 2) / depth;
                 const moveY = (e.pageY - window.innerHeight / 2) / depth;
                 index++
-                
+
                 $gsap.to(bubble, {
                     x: moveX * index,
                     y: moveY * index,
