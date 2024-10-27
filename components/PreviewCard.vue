@@ -12,7 +12,7 @@
                 <div class="overflow-scroll">
                     <h2>{{ previewStore.titlePreview || 'The title of your website'}}</h2>
                     <p>
-                        <span class="date">Jul 13, 2024 - </span>{{ previewStore.descrPreview || 'Duis do fugiat non ex. Ad ullamco cillum eu consequat voluptate fugiat labore incididunt dolore dolore in Lorem aliquip cupidatat.'}}
+                        <span class="date">Jul 13, 2024 - </span>{{ previewStore.descrPreview || 'The description of your website, be brief but complete and coherent with the website content.'}}
                     </p>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                 <h2>{{ previewStore.titlePreview || 'The title of your website'}}</h2>
                 <div class="flex gap-4">
                     <p class="w-8/12">
-                        <span class="date">Jul 13, 2024 - </span>{{ previewStore.descrPreview || 'Duis do fugiat non ex. Ad ullamco cillum eu consequat voluptate fugiat labore incididunt dolore dolore in Lorem aliquip cupidatat.'}}
+                        <span class="date">Jul 13, 2024 - </span>{{ previewStore.descrPreview || 'The description of your website, be brief but complete and coherent with the website content.'}}
                     </p>
                     <div class="bg-[#4692FE36] w-[80px] h-[80px] rounded">
     
