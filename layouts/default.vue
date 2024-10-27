@@ -118,7 +118,7 @@
 
     body {
         background: linear-gradient(60deg, #7e2585, #4692FE);
-        height: 100vh;
+        min-height: 100vh;
     }
 
     .bubble {
