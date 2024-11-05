@@ -1,7 +1,7 @@
 <template>
     <div>
         <header class="flex justify-center pt-24 mb-10">
-            <h1 class="font-extrabold text-6xl text-white">SEOpreview</h1>
+            <h1 class="font-extrabold text-4xl md:text-6xl text-white">SEOpreview</h1>
         </header>
 
 
