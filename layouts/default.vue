@@ -10,7 +10,7 @@
             <slot />
         </main>
 
-        <footer class="flex justify-center items-center mt-10 text-white font-semibold mb-[100px] lg:mb-0">
+        <footer class="flex justify-center items-center mt-10 text-white font-semibold mb-[100px] lg:mb-5">
             <svg class="bg-white/50 p-[4px] rounded" width="28" height="28" viewBox="0 0 11 11" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -119,8 +119,10 @@
     body {
         background: linear-gradient(60deg, #7e2585, #4692FE);
         min-height: 100vh;
+        scroll-behavior: smooth;
     }
 
+    /* Background animation */
     .bubble {
         border-radius: 50%;
         position: absolute;
@@ -135,6 +137,7 @@
             inset 0 50px 140px #fde9ea2c;
     }
 
+    /* bubbles starting positions and dimensions */
     #bg-animation-box .bubble:nth-child(1) {
         top: 10%;
         left: 15%;
@@ -184,7 +187,7 @@
         width: 15vw;
     }
 
-    /* BG animation */
+    /* Bubbles' container */
     #bg-animation-box {
         position: fixed;
         top: 0;
@@ -193,24 +196,5 @@
         height: 100%;
         overflow: hidden;
         z-index: -1;
-    }
-
-    #bg-animation-box li {
-        position: fixed;
-        display: block;
-        list-style: none;
-        border-radius: 50%;
-    }
-
-    @keyframes bg-animate-01 {
-        0% {
-            transform: translateY(0);
-            opacity: 0.9;
-        }
-
-        100% {
-            transform: translateY(-110vh);
-            opacity: 0.1;
-        }
     }
 </style>
