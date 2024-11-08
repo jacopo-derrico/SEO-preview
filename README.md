@@ -6,5 +6,5 @@ In addition there are informations and links to dive deeper into SEO, if needed.
 
 ## Technologies
 
-This website is creatted with (Nuxt.js)[https://nuxt.com/] and  uses simple js logic for the preview.
-The background animation is made with (GSAP)[https://gsap.com/].
+This website is creatted with [Nuxt.js](https://nuxt.com/) and  uses simple js logic for the preview.
+The background animation is made with [GSAP](https://gsap.com/).
